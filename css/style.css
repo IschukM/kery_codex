@@ -1,0 +1,427 @@
+:root {
+  --color-page: #fbf6ed;
+  --color-hero-bg: #fbf7ee;
+  --color-text: #101010;
+  --color-brand: #4e7c2d;
+  --color-brand-dark: #2e481d;
+  --color-accent: #e95708;
+  --color-badge: #608d29;
+  --font-logo: "Nunito", "Arial Rounded MT Bold", sans-serif;
+  --font-base: "Nunito Sans", Arial, sans-serif;
+  --font-handwritten: "Caveat", "Segoe Print", cursive;
+  --container-width: 960px;
+  --header-height: 98px;
+  --header-column-gap: 32px;
+  --header-brand-width: 208px;
+  --header-nav-min-width: 548px;
+  --header-actions-width: 116px;
+  --nav-gap: 28px;
+  --icon-size: 25px;
+  --logo-mark-size: 58px;
+  --transition-soft: 180ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  color: var(--color-text);
+  background: var(--color-hero-bg);
+  font-family: var(--font-base);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+}
+
+.page {
+  width: min(100%, 1024px);
+  min-height: 100vh;
+  margin: 0 auto;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.66), transparent 26%),
+    var(--color-hero-bg);
+}
+
+.site-header {
+  display: grid;
+  grid-template-columns:
+    var(--header-brand-width)
+    minmax(var(--header-nav-min-width), 1fr)
+    var(--header-actions-width);
+  grid-template-areas: "brand nav actions";
+  align-items: center;
+  column-gap: var(--header-column-gap);
+  width: min(var(--container-width), calc(100% - 56px));
+  height: var(--header-height);
+  margin: 0 auto;
+}
+
+.brand {
+  display: inline-flex;
+  grid-area: brand;
+  align-items: center;
+  justify-self: start;
+  gap: 10px;
+  transition:
+    opacity var(--transition-soft),
+    transform var(--transition-soft);
+}
+
+.brand:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.brand__mark {
+  width: var(--logo-mark-size);
+  height: var(--logo-mark-size);
+  object-fit: contain;
+}
+
+.brand__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  line-height: 1.05;
+}
+
+.brand__name {
+  color: var(--color-brand);
+  font-family: var(--font-logo);
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.brand__tagline {
+  margin-top: 2px;
+  color: var(--color-brand-dark);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.main-nav {
+  display: flex;
+  grid-area: nav;
+  align-items: center;
+  justify-content: center;
+  gap: var(--nav-gap);
+  width: 100%;
+  min-width: var(--header-nav-min-width);
+}
+
+.main-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  border-bottom: 2px solid transparent;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    color var(--transition-soft),
+    opacity var(--transition-soft);
+}
+
+.main-nav__link--active {
+  color: var(--color-accent);
+  border-bottom-color: currentColor;
+}
+
+.main-nav__link:hover {
+  color: var(--color-accent);
+  opacity: 0.86;
+}
+
+.header-actions {
+  display: flex;
+  grid-area: actions;
+  align-items: center;
+  justify-content: flex-end;
+  justify-self: end;
+  width: var(--header-actions-width);
+  gap: 24px;
+}
+
+.header-actions__link,
+.cart-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--color-text);
+  transition:
+    color var(--transition-soft),
+    opacity var(--transition-soft),
+    transform var(--transition-soft);
+}
+
+.header-actions__link:hover,
+.cart-link:hover {
+  color: var(--color-brand);
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.header-actions svg,
+.cart-link svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.1;
+}
+
+.cart-link {
+  display: grid;
+  width: 31px;
+}
+
+.cart-link__badge {
+  grid-area: 1 / 1;
+  align-self: start;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 21px;
+  height: 21px;
+  padding: 0 6px;
+  color: #ffffff;
+  background: var(--color-badge);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  transform: translate(52%, -45%);
+  transition: background-color var(--transition-soft);
+}
+
+.cart-link svg {
+  grid-area: 1 / 1;
+}
+
+.cart-link:hover .cart-link__badge {
+  background: var(--color-brand);
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  width: min(var(--container-width), calc(100% - 56px));
+  min-height: 512px;
+  margin: 0 auto;
+  background-image: url("../images/hero/hero-main.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.hero__content {
+  z-index: 1;
+  width: 44%;
+  max-width: 420px;
+  min-width: 420px;
+  padding-top: 70px;
+}
+
+.hero__title {
+  margin: 0;
+  color: var(--color-accent);
+  font-family: var(--font-logo);
+  font-size: 54px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.hero__title span {
+  display: block;
+}
+
+.hero__title-accent {
+  color: var(--color-brand);
+}
+
+.hero__cta-row {
+  display: grid;
+  grid-template-columns: 86px max-content;
+  align-items: end;
+  column-gap: 10px;
+  width: max-content;
+  margin-top: 42px;
+}
+
+.hero__cta-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.hero__note {
+  width: max-content;
+  margin: 0;
+  color: #111;
+  font-family: "Caveat", cursive;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.hero__arrow {
+  grid-column: 1;
+  align-self: end;
+  width: 82px;
+  height: 76px;
+  margin-bottom: 10px;
+}
+
+.hero__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-width: 208px;
+  min-height: 51px;
+  padding: 0 27px 0 31px;
+  color: #ffffff;
+  background: var(--color-accent);
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(217, 77, 10, 0.16);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  transition:
+    background-color var(--transition-soft),
+    transform var(--transition-soft),
+    box-shadow var(--transition-soft);
+}
+
+.hero__button:hover {
+  background: #d94b05;
+  box-shadow: 0 10px 22px rgba(217, 77, 10, 0.2);
+  transform: translateY(-1px);
+}
+
+.hero__button-arrow {
+  width: 28px;
+  height: 12px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+  column-gap: 20px;
+  width: min(var(--container-width), calc(100% - 56px));
+  margin: 0 auto 36px;
+  padding: 0 18px;
+}
+
+.benefit {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  align-items: start;
+  column-gap: 12px;
+  min-height: 92px;
+  padding: 0 14px 0 0;
+  border-right: 1px dashed rgba(139, 122, 83, 0.24);
+  transition:
+    transform var(--transition-soft),
+    color var(--transition-soft);
+}
+
+.benefit:not(:first-child) {
+  padding-left: 0;
+}
+
+.benefit:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.benefit:hover {
+  transform: translateY(-1px);
+}
+
+.benefit__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+  width: 60px;
+  height: 60px;
+  color: var(--color-brand);
+  background: #eeebcf;
+  border-radius: 50%;
+  transition:
+    color var(--transition-soft),
+    background-color var(--transition-soft);
+}
+
+.benefit__text {
+  padding-top: 3px;
+}
+
+.benefit:hover .benefit__icon {
+  color: var(--color-accent);
+  background: #f2eed5;
+}
+
+.benefit__icon svg {
+  width: 37px;
+  height: 37px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.75;
+}
+
+.benefit__text h2 {
+  margin: 0 0 6px;
+  color: var(--color-text);
+  font-family: var(--font-base);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: 0;
+}
+
+.benefit__text p {
+  margin: 0;
+  color: rgba(16, 16, 16, 0.64);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.38;
+  letter-spacing: 0;
+}
