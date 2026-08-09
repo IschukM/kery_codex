@@ -492,14 +492,14 @@ svg {
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .category-card {
   display: grid;
-  grid-template-rows: 164px 1fr;
-  min-height: 318px;
+  grid-template-rows: 214px 1fr;
+  min-height: 354px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(214, 194, 164, 0.58);
@@ -517,14 +517,14 @@ svg {
 
 .category-card__image {
   display: block;
-  height: 164px;
-  padding: 10px 8px 0;
+  height: 214px;
+  padding: 12px 14px 0;
   overflow: hidden;
 }
 
 .category-card__image img {
   width: 100%;
-  height: 154px;
+  height: 202px;
   object-fit: contain;
   transition: transform 220ms ease;
 }
@@ -535,9 +535,9 @@ svg {
 
 .category-card__content {
   display: grid;
-  grid-template-rows: auto minmax(42px, 1fr) auto;
+  grid-template-rows: auto minmax(34px, 1fr) auto;
   align-items: flex-start;
-  padding: 9px 13px 14px;
+  padding: 10px 18px 16px;
 }
 
 .category-card h3 {
@@ -551,7 +551,7 @@ svg {
 }
 
 .category-card p {
-  margin: 0 0 20px;
+  margin: 0 0 14px;
   color: rgba(16, 16, 16, 0.76);
   font-size: 13px;
   font-weight: 700;
@@ -563,10 +563,12 @@ svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  justify-self: start;
   gap: 9px;
-  min-height: 36px;
+  width: 132px;
+  min-height: 38px;
   margin-top: 0;
-  padding: 0 16px;
+  padding: 0 18px;
   color: #ffffff;
   background: var(--color-accent);
   border-radius: 999px;
@@ -592,13 +594,13 @@ svg {
 
 @media (max-width: 900px) {
   .products-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 560px) {
   .products-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 
@@ -749,5 +751,105 @@ svg {
 @media (max-width: 560px) {
   .bundles-panel {
     padding: 24px;
+  }
+}
+
+.instagram-section {
+  width: min(var(--container-width), calc(100% - 56px));
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.instagram-section__heading {
+  margin-bottom: 18px;
+}
+
+.instagram-section__heading h2 {
+  margin: 0 0 7px;
+  color: var(--color-brand);
+  font-family: var(--font-logo);
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.instagram-section__heading p {
+  margin: 0;
+  color: rgba(16, 16, 16, 0.66);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.instagram-photo {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  color: rgba(79, 124, 45, 0.68);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.68), rgba(255, 249, 240, 0.54)),
+    radial-gradient(circle at 70% 28%, rgba(233, 87, 8, 0.08), transparent 34%);
+  border: 1px solid rgba(214, 194, 164, 0.38);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    transform var(--transition-soft),
+    border-color var(--transition-soft);
+}
+
+.instagram-photo:hover {
+  border-color: rgba(214, 194, 164, 0.62);
+  transform: translateY(-2px);
+}
+
+.instagram-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 0 26px;
+  color: #ffffff;
+  background: var(--color-accent);
+  border-radius: 999px;
+  box-shadow: 0 8px 17px rgba(217, 77, 10, 0.16);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-soft),
+    box-shadow var(--transition-soft),
+    transform var(--transition-soft);
+}
+
+.instagram-cta:hover {
+  background: #d94d0a;
+  box-shadow: 0 10px 20px rgba(217, 77, 10, 0.2);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .instagram-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .instagram-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
