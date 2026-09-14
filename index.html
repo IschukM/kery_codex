@@ -255,8 +255,23 @@
               <a class="bundles-cta" href="#">Обрати набір <span aria-hidden="true">→</span></a>
             </div>
 
-            <div class="bundles-media" aria-label="Фото готових наборів">
-              <span>Фото готових наборів</span>
+            <div class="bundles-media" role="region" aria-roledescription="карусель" aria-label="Фото готових наборів">
+              <div class="bundles-slide is-active" role="group" aria-label="1 із 3">
+                <img src="images/gift-pastila.webp" alt="Дегустаційний набір пастили" width="490" height="325" />
+              </div>
+              <div class="bundles-slide" role="group" aria-label="2 із 3" aria-hidden="true">
+                <img src="images/gift-chips.webp" alt="Набір фруктових чіпсів" width="490" height="325" />
+              </div>
+              <div class="bundles-slide" role="group" aria-label="3 із 3" aria-hidden="true">
+                <img src="images/gift-jerky.jpg" alt="Набір джерків" width="490" height="325" />
+              </div>
+              <button class="bundles-arrow bundles-arrow--prev" type="button" aria-label="Попередній набір">&#8592;</button>
+              <button class="bundles-arrow bundles-arrow--next" type="button" aria-label="Наступний набір">&#8594;</button>
+              <div class="bundles-dots" role="group" aria-label="Вибрати набір">
+                <button class="bundles-dot" type="button" aria-label="Дегустаційний набір пастили" aria-current="true"></button>
+                <button class="bundles-dot" type="button" aria-label="Набір фруктових чіпсів" aria-current="false"></button>
+                <button class="bundles-dot" type="button" aria-label="Набір джерків" aria-current="false"></button>
+              </div>
             </div>
           </div>
         </section>
@@ -340,5 +355,6 @@
         <p class="site-footer__copy">© Keri Pastila</p>
       </footer>
     </div>
+    <script src="js/app.js" defer></script>
   </body>
 </html>
